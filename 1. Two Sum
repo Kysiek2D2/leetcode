@@ -20,7 +20,7 @@ class Solution {
                 }
             }
         }
-        int outputTable[] = new int[]{0,0};
-        return outputTable;
+        int emptyTable[] = new int[]{0,0};
+        return emptyTable;
     }
 }
