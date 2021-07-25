@@ -22,19 +22,20 @@ Explanation: 342 + 465 = 807.
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         
-        List list1 = new ArrayList();
-        ListNode tempNode1=l1;
+        List tempList = new ArrayList();
+        List outputList = new ArrayList();
+        ListNode tempNode=l1;
         ListNode outputNode;
         
         for(int i=0;;i++){
-            list1.add(tempNode1.val);
-            if(tempNode1.next!=null){
-                tempNode1=tempNode1.next;
+            tempList.add(tempNode.val);
+            if(tempNode.next!=null){
+                tempNode=tempNode.next;
             }else break;
         }
         
-        for(int j=0;j<list1.size();j++){
-            outputNode(list1.get(j))
+        for(int j=0;j<tempList.size();j++){
+            outputList.add(new ListNode(tempList.get(j)));
         }
         
         return null;
