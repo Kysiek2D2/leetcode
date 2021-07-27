@@ -1,28 +1,33 @@
 class Solution {
     public String longestCommonPrefix(String[] strs) {
         
+        if(strs.length==1){
+            return strs[0];
+        }
+        
         int longestCommonPrefix = 0;
         String longestCommonPrefixString = "";
         String tempSubString = "";
         String tempSubString2="";
         int lenaa = strs.length;
-        
-        for(int j=0;j<strs[0].length();j++){
-            for(int i=j;i<strs[0].length();i++){
-                tempSubString = strs[0].substring(j,i);
-                for(int z=0;z<strs.length;z++){
-                    for(int y=0;y<strs[z].length();y++){
-                        for(int x=y;x<strs[z].length();x++){
-                            tempSubString2 = strs[z].substring(y,x);
-                            if(tempSubString.equals(tempSubString2) && tempSubString.length() > longestCommonPrefix){
+        int inHowManyStringsPrefixIs=0;
+            for(int i=0;i<=strs[0].length();i++){
+                tempSubString = strs[0].substring(0,i);
+                inHowManyStringsPrefixIs = 1;
+                for(int z=1;z<strs.length;z++){
+                        for(int x=0;x<=strs[z].length();x++){
+                            tempSubString2 = strs[z].substring(0,x);
+                            if(tempSubString.equals(tempSubString2)){
+                                inHowManyStringsPrefixIs++;
+                            }
+                            
+                        }
+                }
+                if(tempSubString.length() > longestCommonPrefix && inHowManyStringsPrefixIs==strs.length){
                                 longestCommonPrefix = tempSubString.length();
                                 longestCommonPrefixString = tempSubString;
                             }
-                        }
-                    }
-                }
             }
-        }
         return longestCommonPrefixString;
     }
 }
